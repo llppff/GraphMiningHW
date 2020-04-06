@@ -16,7 +16,7 @@ def get_edges(edges_file_path):
 
     #将读入的边以列表形式存放，以便将字符串改为整型。
     # 因为读入的边的列表的每个元素是字符串，例如[['1','2'],['1','5']]
-    with open('data/testedges.csv') as f:
+    with open(edges_file_path) as f:
         edges = [list(line) for line in csv.reader(f)]
 
     #将每条边的首尾改为整型，并把每条边转换为元组形式存放
