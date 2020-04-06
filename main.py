@@ -45,7 +45,7 @@ if __name__ == "__main__":
 
 
     #根据上方得到的vertices和edges进行相应的计算
-    no = 1
+    no = 10000
     graph = Graph(vertices, edges)
 
     #计算local clustering_coefficient
