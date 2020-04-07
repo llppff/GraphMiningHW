@@ -61,6 +61,34 @@ class Graph(object):
             raise Exception(
                 "Edges contain duplicates.\nEdges: {}\nDuplicate vertices: {}".format(self.edges, duplicate_edges))
 
+
+
+    def clustering_coefficient(self, node):
+        neighbour = []
+        connect_num = 0
+        degree = 0
+        for i in self.vertices:
+            if (node,i) in self.edges:
+                neighbour.append(i)
+                degree +=1
+        length = len(neighbour)
+        for i in range(length):
+            for j in range(length):
+                if (neighbour[i],neighbour[j]) in self.edges:
+                    connect_num += 1
+        sum_edgs = degree * (degree - 1) / 2
+        if sum_edgs == 0:
+            return 0
+        return 2.0 * connect_num / sum_edgs
+
+    def average_clustering_coefficient(self):
+        sum_clust_coeffi = 0.0
+        for i in self.vertices:
+            clust_coeffi = self.clustering_coefficient(i)
+            print(str(i) + "'s clustering_coefficient is:" + str(clust_coeffi))
+            sum_clust_coeffi += clust_coeffi
+        length = len(self.vertices)
+        return sum_clust_coeffi / length
     def min_dist(self, start_node, end_node, path, visited):
         '''
         Finds minimum distance between start_node and end_node
@@ -156,30 +184,6 @@ class Graph(object):
             return shortest_path
         raise NotImplementedError
 
-    def clustering_coefficient(self, node):
-        neighbour = []
-        connect_num = 0
-        degree = 0
-        for i in self.vertices:
-            if (node,i) in self.edges:
-                neighbour.append(i)
-                degree +=1
-        length = len(neighbour)
-        for i in range(length):
-            for j in range(length):
-                if (neighbour[i],neighbour[j]) in self.edges:
-                    connect_num += 1
-        sum_edgs = degree * (degree - 1) / 2
-        if sum_edgs == 0:
-            return 0
-        return 2.0 * connect_num / sum_edgs
-
-    def average_clustering_coefficient(self):
-        sum_clust_coeffi = 0.0
-        for i in self.vertices:
-            sum_clust_coeffi += self.clustering_coefficient(i)
-        length = len(self.vertices)
-        return sum_clust_coeffi / length
 
     def betweenness_centrality(self, node):
         """

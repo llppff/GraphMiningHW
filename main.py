@@ -25,6 +25,7 @@ def get_edges(edges_file_path):
         edges[i][1] = int(edges[i][1])
         edges[i] = tuple(edges[i])
 
+
     return edges
 
 
@@ -45,12 +46,9 @@ if __name__ == "__main__":
 
 
     #根据上方得到的vertices和edges进行相应的计算
-    no = 10000
+    no = 1
     graph = Graph(vertices, edges)
 
-    #计算local clustering_coefficient
-    clust_coeffi = graph.clustering_coefficient(no)
-    print(str(no) + "'s clustering coefficient is:" + str(clust_coeffi))
 
     # 计算average clustering_coefficient
     aver_clust_coeffi = graph.average_clustering_coefficient()
@@ -58,4 +56,4 @@ if __name__ == "__main__":
 
     #计算betweeness
     betweeness = graph.betweenness_centrality(no)
-    print("betweeness is:" + str(betweeness))
+    print(str(no) + "'betweeness is:" + str(betweeness))
