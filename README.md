@@ -1,2 +1,3 @@
-main.py实现了图的顶点的聚集系数，密度，介数中心性\\
+main.py实现了图的顶点的聚集系数，密度，介数中心性
+
 spectral_clustering.py实现了谱聚类、并和k-means进行了对比，对比结果存在spectral_clustering_result.png中
