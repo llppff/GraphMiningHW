@@ -1,7 +1,6 @@
 import re
 import itertools
 
-
 REGEX = "201[0-9]{4}"
 
 
@@ -116,7 +115,9 @@ class Graph(object):
         x = path
         if start_node == end_node:
             return path
+        #存放所有的最短路径
         all_path = []
+        #求出所有start_node的邻居结点
         for i in range(length):
             for j in range(2):
                 if (j == 0) and (self.edges[i][j] == start_node):
@@ -208,6 +209,7 @@ class Graph(object):
                     pair_of_nodes.append(p)
         for i in pair_of_nodes:
             y = 0
+            #存放i[0]到i[1]所有可能的最短路径
             shortest_path = self.all_shortest_paths(i[0], i[1])
             x = len(shortest_path)
             for i in shortest_path:
@@ -216,3 +218,9 @@ class Graph(object):
             b_w_c += y / x
         return b_w_c
         raise NotImplementedError
+
+    #获取密度
+    def getDensity(self):
+        nodes_num = len(self.vertices)
+        edges_num = len(self.edges)
+        return 2.0 * edges_num / (nodes_num * (nodes_num - 1))

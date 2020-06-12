@@ -33,27 +33,25 @@ def get_edges(edges_file_path):
 
 import csv
 if __name__ == "__main__":
-    #定义存放图的节点和边信息的文件路径
-    nodes_file_path = "data/nodes.csv"
-    edges_file_path = "data/edges.csv"
-
-
-
-    #获取vertices和edges
-    vertices = get_vertices(nodes_file_path)
-    edges = get_edges(edges_file_path)
-
-
+    #点和边
+    vertices = [1, 2, 3, 4, 5, 6]
+    edges = [(1, 2), (1, 5), (2, 3), (2, 5), (3, 4), (4, 5), (4, 6)]
 
     #根据上方得到的vertices和edges进行相应的计算
-    no = 1
     graph = Graph(vertices, edges)
 
 
     # 计算average clustering_coefficient
     aver_clust_coeffi = graph.average_clustering_coefficient()
-    print("average_clustering_coefficient is:" + str(aver_clust_coeffi))
+    print("average_clustering_coefficient is:{:.4f}".format(aver_clust_coeffi))
+
+    #计算密度
+    density = graph.getDensity()
+    print("density is:{:.4f}".format(density))
 
     #计算betweeness
-    betweeness = graph.betweenness_centrality(no)
-    print(str(no) + "'betweeness is:" + str(betweeness))
+    for no in vertices:
+        betweeness = graph.betweenness_centrality(no)
+        print(str(no) + "'betweeness is:" + str(betweeness))
+
+
