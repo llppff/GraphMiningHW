@@ -100,18 +100,18 @@ class Graph(object):
 
         '''
 
-        d = {};
+        d = {}
         dist = 0
-        self.start_node = start_node;
-        self.end_node = end_node;
+        self.start_node = start_node
+        self.end_node = end_node
         x = start_node
         for i in self.vertices:
             d[i] = False
         dist = 0
         visited[start_node] = True
-        neighbours = [];
+        neighbours = []
         length = len(self.edges)
-        path.append(start_node);
+        path.append(start_node)
         x = path
         if start_node == end_node:
             return path
@@ -130,7 +130,7 @@ class Graph(object):
                         visited[self.edges[i][0]] = True
         returned_paths = []
         for next_node in neighbours:
-            temp_dict = dict(visited);
+            temp_dict = dict(visited)
             temp_path = list(path)
             if next_node not in temp_path:
                 returned_paths = self.min_dist(next_node, end_node, temp_path, temp_dict)
