@@ -35,7 +35,7 @@ import csv
 if __name__ == "__main__":
     #点和边
     vertices = [1, 2, 3, 4, 5, 6]
-    edges = [(1, 2), (1, 5), (2, 3), (2, 5), (3, 4), (4, 5), (4, 6)]
+    edges = [(1, 2), (1, 4),(1, 5), (2, 3), (2, 5), (3, 4), (4, 5), (4, 6)]
 
     #根据上方得到的vertices和edges进行相应的计算
     graph = Graph(vertices, edges)
@@ -52,6 +52,6 @@ if __name__ == "__main__":
     #计算betweeness
     for no in vertices:
         betweeness = graph.betweenness_centrality(no)
-        print(str(no) + "'betweeness is:" + str(betweeness))
+        print(str(no) + "'betweeness is:{:.4f}".format(betweeness))
 
 
