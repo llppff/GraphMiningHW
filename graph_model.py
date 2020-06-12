@@ -84,7 +84,7 @@ class Graph(object):
         sum_clust_coeffi = 0.0
         for i in self.vertices:
             clust_coeffi = self.clustering_coefficient(i)
-            print(str(i) + "'s clustering_coefficient is:" + str(clust_coeffi))
+            print(str(i) + "'s clustering_coefficient is:{:.4f}".format(clust_coeffi))
             sum_clust_coeffi += clust_coeffi
         length = len(self.vertices)
         return sum_clust_coeffi / length
