@@ -67,4 +67,4 @@ def plot(X, y_sp, y_km):
     plt.subplot(122)
     plt.scatter(X[:,0], X[:,1], s=10, color=colors[y_km])
     plt.title("Kmeans Clustering")
-    plt.savefig("spectral_clustering_result.png")
+    plt.savefig("spect_vs_km_clst.png")
